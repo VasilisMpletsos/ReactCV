@@ -1,14 +1,13 @@
 import React from "react";
-import classes from "./Header.module.css";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import { SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
+import { Container, SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
 
 
 function Header(){
     return(
-        <div className={classes.header}>
+        <Container >
             <Title>
                 <TitleLetter>V</TitleLetter>
                 <TitleLetter>a</TitleLetter>
@@ -47,7 +46,10 @@ function Header(){
                     </Link>
                 </SocialItem>
             </SocialContainer>
-        </div>
+            <style>
+                @import url(&apos;https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap&apos;);
+            </style>
+        </Container>
     )
 }
 

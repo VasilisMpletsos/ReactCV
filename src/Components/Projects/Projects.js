@@ -1,19 +1,31 @@
 import React from "react";
-import { TitleContainer, TextContainer, Text } from "./styles";
-import classes from "./Projects.module.css"
+import { Container, TitleContainer, TextContainer, Text } from "./styles";
+import { Divider, Grid } from "@material-ui/core";
+import ProjectCard from "../ProjectCard/ProjectCard";
+import Image from "../../Assets/Images/download.jpg"
 
 function Projects(){
     return(
-            <div className={classes.header}>
+            <Container>
                 <TitleContainer>
                     Projects
+                    <Divider/>
                 </TitleContainer>
-                <TextContainer>
-                    <Text>
-                       I have done on my own or helped in many projects some of many:
-                    </Text>
-                </TextContainer>
-            </div>
+                <Grid container style={{marginTop: "20px", width: "100%"}}>
+                    <Grid item container justify="center" xs={12} md={6} lg={4}>
+                        <ProjectCard title="Chargespot" image={Image}/>
+                    </Grid>
+                    <Grid item container justify="center" xs={12} md={6} lg={4}>
+                        <ProjectCard title="Wifi World" image={Image}/>
+                    </Grid>
+                    <Grid item container justify="center" xs={12} md={6} lg={4}>
+                        <ProjectCard title="Xomahos" image={Image}/>
+                    </Grid>
+                </Grid>
+                <style>
+                    @import url(&apos;https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap&apos;);
+                </style>
+            </Container>
     )
 }
 

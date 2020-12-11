@@ -1,12 +1,13 @@
 import React from "react";
-import { TitleContainer, TextContainer, Text } from "./styles";
-import classes from "./Introduction.module.css"
+import { Container, TitleContainer, TextContainer, Text } from "./styles";
+import { Divider } from "@material-ui/core";
 
 function Introduction(){
     return(
-            <div className={classes.header}>
+            <Container>
                 <TitleContainer>
                     Introduction
+                    <Divider/>
                 </TitleContainer>
                 <TextContainer>
                     <Text>
@@ -26,7 +27,10 @@ function Introduction(){
                         </ul>
                     </Text>
                 </TextContainer>
-            </div>
+                <style>
+                    @import url(&apos;https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap&apos;);
+                </style>
+            </Container>
     )
 }
 

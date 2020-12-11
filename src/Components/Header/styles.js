@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #454c77;
+    z-index: 999;
+    box-shadow: 0 0 10px black;
+    color: white;
+    position: sticky;
+    top: 0px;
+`
+
 export const SocialContainer = styled.div`
     display: flex;
     flex-direction: row;

@@ -1,10 +1,7 @@
 import React from 'react';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import { Link, CardMedia, CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { CardConatiner } from "./styles";
+import { CardConatiner, TextContainer, ButtonContainer } from "./styles";
  
 function ProjectCard(props){
     return(
@@ -16,19 +13,23 @@ function ProjectCard(props){
           style={{height: "200px"}}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" style={{fontFamily: 'Dancing Script', fontWeight: 'bold', fontSize: "25px"}}>
             {props.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
+          <TextContainer>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.text}
+            </Typography>
+          </TextContainer>
+          {props.link ? (
+            <Link href={props.link} target="_blank" color="primary">
+            Learn More
+          </Link>
+          ) : "No Info"}
         </CardContent>
-      <CardActions>
-        <Button size="small" color="primary" variant="outlined">
-          Learn More
-        </Button>
-      </CardActions>
+      <style>
+          @import url(&apos;https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap&apos;);
+      </style>
     </CardConatiner>
     )
 }

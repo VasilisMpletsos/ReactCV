@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Card from '@material-ui/core/Card';
 
 export const CardConatiner = styled.div`
     width: 300px;
@@ -10,5 +9,14 @@ export const CardConatiner = styled.div`
         transform: scale(1.1);
         box-shadow: 0 0 10px black;
     }
+`;
+
+export const TextContainer = styled.div`
+    width: 100%;
+    height: 100px;
+`;
+
+export const ButtonContainer = styled.div`
+    margin: 10px;
 `;
 

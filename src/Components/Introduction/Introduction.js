@@ -19,6 +19,7 @@ function Introduction(){
                         a F1 engineer. We achieved some good distinctions by winning the <b>Special Design Award</b> on FSAE Italy and <b>7th overall</b> in 
                         FSAE Czech. My interests beyond automotive industry are:
                         <ul>
+                            <li>VLSI Electronics</li>
                             <li>Electromagnetic Simulations</li>
                             <li>High Frequency Antennas applications</li>
                             <li>Computer Vision and Robotic Operating Systems</li>

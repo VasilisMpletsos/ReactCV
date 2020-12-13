@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, CardMedia, CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { CardConatiner, TextContainer, ButtonContainer } from "./styles";
+import { CardConatiner, TextContainer } from "./styles";
  
 function ProjectCard(props){
     return(

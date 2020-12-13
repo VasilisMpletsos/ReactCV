@@ -3,9 +3,30 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Container, SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
+import { Menu, MenuItem, Button} from '@material-ui/core';
+import { isMobile } from "react-device-detect";
 
 
 function Header(){
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const callMe = () => {
+        window.open('tel:12345');
+    }
+
+    const emailMe = () => {
+        window.location.href = "mailto:mpletsos@auth.gr?subject=Conatct%20me%20from%20site";
+    }
+
     return(
         <Container >
             <Title>
@@ -30,6 +51,22 @@ function Header(){
                 <TitleLetter>V</TitleLetter>
             </Title>
             <SocialContainer>
+                <div style={{marginRight: "10px"}}>
+                    <Button variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                        Contact Me
+                    </Button>
+                    <Menu
+                        style={{position: "absolute", top: "40px"}}
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        {isMobile ? <MenuItem onClick={callMe}>Phone Call</MenuItem> : undefined}
+                        <MenuItem onClick={emailMe}>Send Email</MenuItem>
+                    </Menu>
+                </div>
                 <SocialItem>
                     <Link href="https://github.com/VasilisMpletsos" target="_blank">
                         <GitHubIcon/>

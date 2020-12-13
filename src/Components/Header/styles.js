@@ -16,6 +16,7 @@ export const Container = styled.div`
 export const SocialContainer = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
     position: absolute;
     right: 20px;
 `;

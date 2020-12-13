@@ -33,7 +33,7 @@ export const SocialItem = styled.div`
     &:hover{
         transform: scale(1.2);
     }
-`
+`;
 
 export const Title = styled.div`
     display: flex;
@@ -42,7 +42,7 @@ export const Title = styled.div`
     @media(max-width: 600px){
         margin-left: 0px;
     }
-`
+`;
 
 export const TitleLetter = styled.div`
     font-family: 'Fredericka the Great', cursive;
@@ -52,9 +52,9 @@ export const TitleLetter = styled.div`
         transform: scale(1.2);
         color: yellow;
     }
-`
+`;
 
 export const Link = styled.a`
     text-decoration: none;
     color: white;
-`
+`;

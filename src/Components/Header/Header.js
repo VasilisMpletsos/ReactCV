@@ -4,7 +4,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Container, SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
 import { Menu, MenuItem, Button, Tooltip} from '@material-ui/core';
-import { isMobile } from "react-device-detect";
 
 
 function Header(){
@@ -18,10 +17,6 @@ function Header(){
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const callMe = () => {
-        window.open('tel:+30 6944048324');
-    }
 
     const emailMe = () => {
         window.location.href = "mailto:mpletsos@auth.gr?subject=Conatct%20me%20from%20site";
@@ -63,7 +58,6 @@ function Header(){
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        {isMobile ? <MenuItem onClick={callMe}>Phone Call</MenuItem> : undefined}
                         <MenuItem onClick={emailMe}>Send Email</MenuItem>
                     </Menu>
                 </div>

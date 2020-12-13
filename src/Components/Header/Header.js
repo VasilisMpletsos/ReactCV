@@ -3,7 +3,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Container, SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
-import { Menu, MenuItem, Button} from '@material-ui/core';
+import { Menu, MenuItem, Button, Tooltip} from '@material-ui/core';
 import { isMobile } from "react-device-detect";
 
 
@@ -69,17 +69,23 @@ function Header(){
                 </div>
                 <SocialItem>
                     <Link href="https://github.com/VasilisMpletsos" target="_blank">
-                        <GitHubIcon/>
+                        <Tooltip title="Github">
+                            <GitHubIcon/>
+                        </Tooltip>
                     </Link>
                 </SocialItem>
                 <SocialItem>
                     <Link href="https://www.linkedin.com/in/vasileios-mpletsos-1158a3196/" target="_blank">
-                        <LinkedInIcon/>
+                        <Tooltip title="Linkedin">
+                            <LinkedInIcon/>
+                        </Tooltip>
                     </Link>
                 </SocialItem>
                 <SocialItem>
                     <Link href="https://www.facebook.com/vmpletsos" target="_blank">
-                        <FacebookIcon/>
+                        <Tooltip title="Facebook">
+                            <FacebookIcon/>
+                        </Tooltip>
                     </Link>
                 </SocialItem>
             </SocialContainer>

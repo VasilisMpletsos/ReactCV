@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TableCell } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 
 export const Container = styled.div`
     margin: 50px 30px 30px; 
@@ -17,9 +17,18 @@ export const TableMargins = styled.div`
     margin: 30px 100px 0px 100px;
 `;
 
-export const StyledCell = styled(TableCell)`
+export const StyledAvatar = styled(Avatar)`
     &&{
         font-family: 'Indie Flower';
         font-size: 22px;
+        width: 120px;
+        height: 120px;
+        background-color: purple;
+        transition: 400ms;
+        &:hover{
+            background-color: orange;
+            transform: scale(1.2);
+            color: black;
+        }
     }
 `;

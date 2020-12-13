@@ -1,6 +1,12 @@
 import React from "react";
-import { Container, TitleContainer, TableMargins, StyledCell} from "./styles";
-import { Divider, Table, TableBody, TableContainer, TableRow } from "@material-ui/core";
+import { Container, TitleContainer, TableMargins} from "./styles";
+import { Divider, Grid } from "@material-ui/core";
+import mapSkills from "./mapSkills";
+
+const skills = ['C','C++','Python','Django','R','Java','Javascript','NodeJS','React','Matlab',
+                'MySQL','MongoDB','OpenCV','Keras','Tensorflow',
+                'Virtuoso','HFSS','EasyEDA','Multisim',
+                'Photoshop','Solidworks','RasberryPI','Arduino'];
 
 function ComputerSkills(){
     return(
@@ -10,27 +16,9 @@ function ComputerSkills(){
                 <Divider/>
             </TitleContainer>
             <TableMargins>
-                <TableContainer>
-                    <Table>
-                        <TableBody>
-                            <TableRow>
-                                <StyledCell align="center">C/C++</StyledCell>
-                                <StyledCell align="center">Java</StyledCell>
-                                <StyledCell align="center">Python</StyledCell>
-                            </TableRow>
-                            <TableRow>
-                                <StyledCell align="center">NodeJS</StyledCell>
-                                <StyledCell align="center">Django</StyledCell>
-                                <StyledCell align="center">React</StyledCell>
-                            </TableRow>
-                            <TableRow>
-                                <StyledCell align="center">Javascript</StyledCell>
-                                <StyledCell align="center">R</StyledCell>
-                                <StyledCell align="center">Virtuoso</StyledCell>
-                            </TableRow>
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                <Grid container direction="row" spacing={2}>
+                    {mapSkills(skills)}
+                </Grid>
             </TableMargins>
         </Container>
     )

@@ -11,15 +11,6 @@ export const TitleContainer = styled.div`
     font-family: 'Dancing Script';
     font-size: 40px;
     font-weight: bold;
-    animation: titleAppearIntro 4s;
-    @keyframes titleAppearIntro{
-        0% {
-            left: 2000px;
-        }
-        100% {
-            left: 0px;
-        }
-    }
 `;
 
 export const TextContainer = styled.div`
@@ -31,12 +22,4 @@ export const Text = styled.div`
     font-family: 'Indie Flower';
     font-size: 22px;
     animation: textAppearIntro 4s;
-    @keyframes textAppearIntro{
-        0% {
-            left: 2000px;
-        }
-        100% {
-            left: 0px;
-        }
-    }
 `;

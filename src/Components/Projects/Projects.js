@@ -6,11 +6,11 @@ import MaskRadio from "../../Assets/Images/maskradio.jpg";
 import WifiWorld from "../../Assets/Images/wifiworld.png";
 import Digit from "../../Assets/Images/digitkaggle.png";
 import Telemetry from "../../Assets/Images/carTelemetry.jpg";
-import PlatesBlur from "../../Assets/Images/blurplates.PNG";
-import Art from "../../Assets/Images/art.JPG";
+import PlatesBlur from "../../Assets/Images/blurplates.png";
+import Art from "../../Assets/Images/art.png";
 import FixedPdf from "../../Assets/Images/pdfcleaner.jpg";
-import Lock from "../../Assets/Images/lock.jpeg";
-import Ikariam from "../../Assets/Images/ikariam.jpeg";
+import Lock from "../../Assets/Images/boot.png";
+import Ikariam from "../../Assets/Images/ikariam.png";
 import Stevva from "../../Assets/Images/stevva.jpg";
 import mapProjects from "./mapProjects";
 
@@ -89,7 +89,7 @@ function Projects(){
                     Projects
                     <Divider/>
                 </TitleContainer>
-                <Grid container style={{marginTop: "20px", width: "100%"}} spacing={5}>
+                <Grid container justify={window.screen.width < 900 ? "center" : "undefined"} style={{marginTop: "20px", width: "100%"}} spacing={5}>
                     {mapProjects(projects)}
                 </Grid>
                 <style>

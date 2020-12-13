@@ -4,13 +4,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 60px;
     background-color: #454c77;
     z-index: 999;
     box-shadow: 0 0 10px black;
     color: white;
     position: sticky;
     top: 0px;
+    padding: 10px;
+    @media(max-width: 600px){
+        justify-content: center;
+    }
 `
 
 export const SocialContainer = styled.div`
@@ -19,6 +22,9 @@ export const SocialContainer = styled.div`
     align-items: center;
     position: absolute;
     right: 20px;
+    @media(max-width: 600px){
+        display: none;
+    }
 `;
 
 export const SocialItem = styled.div`
@@ -33,6 +39,9 @@ export const Title = styled.div`
     display: flex;
     flex-direction: row;
     margin-left: 30px;
+    @media(max-width: 600px){
+        margin-left: 0px;
+    }
 `
 
 export const TitleLetter = styled.div`

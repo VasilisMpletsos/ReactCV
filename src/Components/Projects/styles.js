@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin: 30px 30px 30px; 
+    margin: 30px;
+    @media(max-width: 900px){
+        margin: 30px 10px 0px 10px; 
+    }
 `
 
 export const TitleContainer = styled.div`
@@ -14,4 +17,7 @@ export const TitleContainer = styled.div`
 
 export const TextContainer = styled.div`
     margin: 30px 50px 0px 50px;
+    @media(max-width: 900px){
+        margin: 30px 10px 0px 10px; 
+    }
 `;

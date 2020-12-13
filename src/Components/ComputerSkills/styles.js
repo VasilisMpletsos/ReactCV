@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { Avatar } from "@material-ui/core";
 
 export const Container = styled.div`
-    margin: 50px 30px 30px; 
+    margin: 50px 30px 30px 30px;
+    @media(max-width: 900px){
+        margin: 50px 10px 0px 10px; 
+    } 
 `
 
 export const TitleContainer = styled.div`
@@ -13,8 +16,11 @@ export const TitleContainer = styled.div`
     font-weight: bold;
 `;
 
-export const TableMargins = styled.div`
+export const SkillsMargins = styled.div`
     margin: 30px 100px 0px 100px;
+    @media(max-width: 900px){
+        margin: 30px 10px 0px 10px; 
+    }
 `;
 
 export const StyledAvatar = styled(Avatar)`

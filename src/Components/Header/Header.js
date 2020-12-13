@@ -20,7 +20,7 @@ function Header(){
     };
 
     const callMe = () => {
-        window.open('tel:12345');
+        window.open('tel:+30 6944048324');
     }
 
     const emailMe = () => {

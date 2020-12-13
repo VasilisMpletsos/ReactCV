@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, TitleContainer, TableMargins} from "./styles";
+import { Container, TitleContainer, SkillsMargins} from "./styles";
 import { Divider, Grid } from "@material-ui/core";
 import mapSkills from "./mapSkills";
 
@@ -15,11 +15,11 @@ function ComputerSkills(){
                 Computer Skills
                 <Divider/>
             </TitleContainer>
-            <TableMargins>
-                <Grid container direction="row" spacing={2}>
+            <SkillsMargins>
+                <Grid container direction="row" spacing={2} justify={window.screen.width < 900 ? "center" : "undefined"}>
                     {mapSkills(skills)}
                 </Grid>
-            </TableMargins>
+            </SkillsMargins>
         </Container>
     )
 }

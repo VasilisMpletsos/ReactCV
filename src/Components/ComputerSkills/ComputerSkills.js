@@ -3,7 +3,7 @@ import { Container, TitleContainer, SkillsMargins} from "./styles";
 import { Divider, Grid } from "@material-ui/core";
 import mapSkills from "./mapSkills";
 
-const skills = ['C','C++','Python','Django','R','Java','Javascript','NodeJS','React','Matlab',
+const skills = ['C','C++','Python','Django','R','Java','Javascript','NodeJS','React','Matlab','Assembly',
                 'MySQL','MongoDB','OpenCV','Keras','Tensorflow',
                 'Virtuoso','HFSS','EasyEDA','Multisim',
                 'Photoshop','Solidworks','RasberryPI','Arduino'];

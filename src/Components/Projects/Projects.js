@@ -6,7 +6,7 @@ import MaskRadio from "../../Assets/Images/maskradio.jpg";
 import WifiWorld from "../../Assets/Images/wifiworld.png";
 import Digit from "../../Assets/Images/digitkaggle.png";
 import Telemetry from "../../Assets/Images/carTelemetry.jpg";
-import PlatesBlur from "../../Assets/Images/blurplates.png";
+import PlatesBlur from "../../Assets/Images/blurplates.PNG";
 import Art from "../../Assets/Images/art.png";
 import FixedPdf from "../../Assets/Images/pdfcleaner.jpg";
 import Lock from "../../Assets/Images/boot.png";

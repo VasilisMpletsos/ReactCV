@@ -30,24 +30,24 @@ const projects = [
     {
         title: "I-Stevva",
         image: Stevva,
-        text: "I-Stevva is a device where farmers can buy and monitor the conitions of their field remotely 24/7",
+        text: "I-Stevva is a device which farmers can buy and monitor the conitions of their fields remotely 24/7",
     },
     {
         title: "Mask Radio",
         image: MaskRadio,
-        text: "Mask Radio was a web app i designed, we made lives with one friend and our friends could send us their songs on site, directly from youtube API.",
+        text: "Mask Radio was a web app i designed, we made lives with a friend and our friends could send us their songs on site, directly from youtube API.",
         link: "https://github.com/VasilisMpletsos/MaskRadio"
     },
     {
         title: "Wifi World",
         image: WifiWorld,
-        text: "Wifi World is an web app idea, where users can upload or search for decrypted Wifi handshakes, upload your captures or help the commutity and decrypt hashes.",
+        text: "Wifi World is a web app idea, where users can upload or search for decrypted Wifi handshakes, upload their captures or help the commutity by decrypting hashes.",
         link: "https://github.com/VasilisMpletsos/WifiWorld"
     },
     {
         title: "Fix Scanned PDF",
         image: FixedPdf,
-        text: "Fixed Scanned PDF, is a python program that reads each page of a pdf and aplying thresholding techniques to clean it if was scanned and has bad quality.",
+        text: "Fixed Scanned PDF, is a python program that reads each page of a pdf and aplying thresholding techniques to clean it if was scanned and had bad quality.",
         link: "https://github.com/VasilisMpletsos/FixScannedPDF"
     },
     {
@@ -65,13 +65,13 @@ const projects = [
     {
         title: "Blur Plates",
         image: PlatesBlur,
-        text: "Blur Plates is a simple Open CV project where license plates are located in images and the blured.",
+        text: "Blur Plates is a simple Open CV project where license plates are located in images and then blured.",
         link: "https://github.com/VasilisMpletsos/BluringLicensePlates"
     },
     {
         title: "Boot Image Scanner",
         image: Lock,
-        text: "Boot image scanner is an Python program where if you open your PC and dont show it the image key it shutdowns.",
+        text: "Boot image scanner is a Python program. If you open your PC and don' show it the image key it shutdowns.",
         link: "https://github.com/VasilisMpletsos/StartUpImageScanner"
     },
     {

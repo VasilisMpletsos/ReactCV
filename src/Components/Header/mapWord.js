@@ -5,7 +5,6 @@ function mapWord(word){
     return(
         <Title>
             {Array.from(word).map ( letter => {
-                console.log(letter);
                 return <TitleLetter>{letter}</TitleLetter>
             })}
         </Title>

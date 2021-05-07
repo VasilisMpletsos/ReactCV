@@ -9,6 +9,7 @@ export const CardConatiner = styled.div`
         transform: scale(1.1);
         box-shadow: 0 0 10px black;
     }
+    margin: 20px 0px 20px 0px;
 `;
 
 export const TextContainer = styled.div`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Header from "./Components/Header/Header";
 import Introduction from "./Components/Introduction/Introduction";
 import Projects from "./Components/Projects/Projects";
@@ -7,13 +7,13 @@ import MobileContact from "./Components/MobileContact/MobileContact";
 
 function App() {
   return (
-    <div>
+    <Fragment>
       <Header/>
       <Introduction/>
       <Projects/>
       <ComputerSkills/>
       <MobileContact/>
-    </div>
+    </Fragment>
   );
 }
 

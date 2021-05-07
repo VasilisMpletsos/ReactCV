@@ -89,7 +89,7 @@ function Projects(){
                     Projects
                     <Divider/>
                 </TitleContainer>
-                <Grid container justify={window.screen.width < 900 ? "center" : "undefined"} style={{marginTop: "20px", width: "100%"}} spacing={5}>
+                <Grid container justify={window.screen.width < 900 ? "center" : "undefined"}>
                     {mapProjects(projects)}
                 </Grid>
                 <style>

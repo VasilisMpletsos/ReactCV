@@ -4,12 +4,15 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+    height:50px;
     background-color: #454c77;
     z-index: 999;
     box-shadow: 0 0 10px black;
     color: white;
     position: sticky;
-    top: 0px;
+    position: -webkit-sticky;
+    top: 0;
+    overflow: auto;
     padding: 10px;
     @media(max-width: 600px){
         justify-content: center;

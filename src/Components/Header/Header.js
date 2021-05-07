@@ -28,12 +28,12 @@ function Header(){
             {mapWord("Vasilis Mpletsos CV")}
             <SocialContainer>
                 <div style={{marginRight: "10px"}}>
-                    <Button variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                    <Button variant="contained" color="primary" onClick={handleClick}>
                         Contact Me
                     </Button>
                     <Menu
-                        style={{position: "absolute", top: "40px"}}
-                        id="simple-menu"
+                        style={{top: "45px"}}
+                        autoFocus={true}
                         anchorEl={anchorEl}
                         keepMounted
                         open={Boolean(anchorEl)}

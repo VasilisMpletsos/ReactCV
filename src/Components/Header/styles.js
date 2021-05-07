@@ -48,6 +48,7 @@ export const TitleLetter = styled.div`
     font-family: 'Fredericka the Great', cursive;
     font-size: 30px;
     transition: 200ms;
+    min-width:7px;
     &:hover{
         transform: scale(1.2);
         color: yellow;

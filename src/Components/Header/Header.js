@@ -2,8 +2,9 @@ import React from "react";
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import { Container, SocialContainer, SocialItem, Title, TitleLetter, Link } from "./styles";
+import { Container, SocialContainer, SocialItem, Link } from "./styles";
 import { Menu, MenuItem, Button, Tooltip} from '@material-ui/core';
+import mapWord from "./mapWord";
 
 
 function Header(){
@@ -24,27 +25,7 @@ function Header(){
 
     return(
         <Container >
-            <Title>
-                <TitleLetter>V</TitleLetter>
-                <TitleLetter>a</TitleLetter>
-                <TitleLetter>s</TitleLetter>
-                <TitleLetter>i</TitleLetter>
-                <TitleLetter>l</TitleLetter>
-                <TitleLetter>i</TitleLetter>
-                <TitleLetter>s</TitleLetter>
-                &nbsp;
-                <TitleLetter>M</TitleLetter>
-                <TitleLetter>p</TitleLetter>
-                <TitleLetter>l</TitleLetter>
-                <TitleLetter>e</TitleLetter>
-                <TitleLetter>t</TitleLetter>
-                <TitleLetter>s</TitleLetter>
-                <TitleLetter>o</TitleLetter>
-                <TitleLetter>s</TitleLetter>
-                &nbsp;
-                <TitleLetter>C</TitleLetter>
-                <TitleLetter>V</TitleLetter>
-            </Title>
+            {mapWord("Vasilis Mpletsos CV")}
             <SocialContainer>
                 <div style={{marginRight: "10px"}}>
                     <Button variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>

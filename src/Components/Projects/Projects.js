@@ -12,6 +12,7 @@ import FixedPdf from "../../Assets/Images/pdfcleaner.jpg";
 import Lock from "../../Assets/Images/boot.png";
 import Ikariam from "../../Assets/Images/ikariam.png";
 import Stevva from "../../Assets/Images/stevva.jpg";
+import InstaScrapper from "../../Assets/Images/instascrapper.png";
 import mapProjects from "./mapProjects";
 
 const projects = [
@@ -20,6 +21,12 @@ const projects = [
         image: Art,
         text: "I was in Aristotle Racing Team in 2017 as head of Electronics. We designed and manufactured an awesome FSAE Car. Best thing in my life!",
         link: "http://aristotleracing.gr/"
+    },
+    {
+        title: "Instagram Scrapper",
+        image: InstaScrapper,
+        text: "An automated bot created with python and Selenium to scrap data from instagram profiles and crawl on its own.",
+        link: "https://www.kaggle.com/vasileiosmpletsos/1100-instagram-users-datetime-posts-data"
     },
     {
         title: "Charge Spot",

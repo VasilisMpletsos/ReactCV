@@ -13,6 +13,7 @@ import Lock from "../../Assets/Images/boot.png";
 import Ikariam from "../../Assets/Images/ikariam.png";
 import Stevva from "../../Assets/Images/stevva.jpg";
 import InstaScrapper from "../../Assets/Images/instascrapper.png";
+import KinoProphet from "../../Assets/Images/kino.png";
 import mapProjects from "./mapProjects";
 
 const projects = [
@@ -50,6 +51,12 @@ const projects = [
         image: WifiWorld,
         text: "Wifi World is a web app idea, where users can upload or search for decrypted Wifi handshakes, upload their captures or help the commutity by decrypting hashes.",
         link: "https://github.com/VasilisMpletsos/WifiWorld"
+    },
+    {
+        title: "Kino Prophet",
+        image: KinoProphet,
+        text: "DNN decided that if you play 4,8,12,15,19,23,27,31,35,39,42,46, 50,54,58,62,66,69,73,77 you have the best chances (about 25%) for KINO!",
+        link: "https://github.com/VasilisMpletsos/KinoAI"
     },
     {
         title: "Fix Scanned PDF",

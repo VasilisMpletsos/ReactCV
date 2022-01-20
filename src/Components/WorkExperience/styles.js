@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Typography from '@material-ui/core/Typography';
 
 export const Container = styled.div`
     margin: 30px 30px 30px; 
@@ -22,3 +23,10 @@ export const WorkContainer = styled.div`
         margin: 30px 10px 0px 10px; 
     }
 `;
+
+export const StyledTypography = styled(Typography)`
+    &&{
+        position: relative;
+        top: -6px;
+    }
+`

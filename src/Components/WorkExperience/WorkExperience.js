@@ -5,6 +5,11 @@ import mapTimeline from "./mapTimeline";
 
 const workPlaces = [
     {
+        name: "Army",
+        position: "Telecommunications Private",
+        location: "Evros, Soufli"
+    },
+    {
         name: "Fieldscale",
         position: "Software Engineer",
         location: "Thessaloniki, Anw Toumpa"

@@ -1,20 +1,25 @@
 import React from "react";
+import Typography from '@material-ui/core/Typography';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
+import { StyledTypography } from "./styles";
 
 function mapTimeline(jobs){
     return(
-        <Timeline>
+        <Timeline align="alternate">
             <TimelineItem>
                 <TimelineSeparator>
                     <TimelineDot color='primary'/>
                     <TimelineConnector/>
                 </TimelineSeparator>
-                <TimelineContent>Army</TimelineContent>
+                <TimelineContent>
+                    <StyledTypography variant="h6" component="span">Kenotom</StyledTypography>
+                    <StyledTypography>Embedded Systems Engineer</StyledTypography>
+                </TimelineContent>
             </TimelineItem>
             {
             jobs.map(job => {
@@ -24,7 +29,10 @@ function mapTimeline(jobs){
                             <TimelineDot />
                             <TimelineConnector/>
                         </TimelineSeparator>
-                        <TimelineContent>{job.name}</TimelineContent>
+                        <TimelineContent>
+                            <StyledTypography variant="h6" component="span">{job.name}</StyledTypography>
+                            <StyledTypography >{job.position}</StyledTypography>
+                        </TimelineContent>
                     </TimelineItem>
                     )
                 })
@@ -33,7 +41,9 @@ function mapTimeline(jobs){
                 <TimelineSeparator>
                     <TimelineDot/>
                 </TimelineSeparator>
-                <TimelineContent>University</TimelineContent>
+                <TimelineContent>
+                    <StyledTypography variant="h6" component="span">University</StyledTypography>
+                </TimelineContent>
             </TimelineItem>
         </Timeline>
     )

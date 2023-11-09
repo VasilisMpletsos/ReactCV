@@ -17,8 +17,8 @@ function mapTimeline(jobs){
                     <TimelineConnector/>
                 </TimelineSeparator>
                 <TimelineContent>
-                    <StyledTypography variant="h6" component="span">Kenotom</StyledTypography>
-                    <StyledTypography>Embedded Systems Engineer</StyledTypography>
+                    <StyledTypography variant="h6" component="span">CERTH</StyledTypography>
+                    <StyledTypography>AI Research Associate</StyledTypography>
                 </TimelineContent>
             </TimelineItem>
             {

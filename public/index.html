@@ -42,5 +42,174 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
+    <script>
+      const renderer = new THREE.WebGLRenderer();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 400);
+      const scene = new THREE.Scene();
+      const manager = new THREE.LoadingManager();
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      let loader = new THREE.GLTFLoader(manager);
+      let cameraLight;
+      let formulaLight;
+      let carLights;
+      let cycle;
+      let car;
+      
+      // Positioning
+      let cameraX = 180;
+      let cameraY = 10;
+      let cameraZ = -10;
+      
+      
+      let wKey = [87, 119, 962];
+      let sKey = [83, 115, 963];
+  
+  
+      let carX = 150;
+      let carY = 1;
+      let carZ = 0;
+      let carRotation = 270/180 * Math.PI;
+      let carStart = 150;
+      let carFinish = -380;
+  
+      let carAccelaration = 0.1;
+      let carDecelaration = 0.03;
+      let carSpeed = 0;
+      let carSpeedLimit = 1;
+  
+      let enableControlRestrictions = false;
+      controls.target.y = carY;
+      controls.target.z = carZ;
+      controls.autoRotate = true;
+      controls.enablePan = false;
+      controls.enableDamping = true;
+      let timeoutAutoRotate = 300;
+      let autoRotateCounter = timeoutAutoRotate;
+  
+      function setScene() {
+          scene.background = new THREE.Color('black');
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          document.body.appendChild(renderer.domElement);
+      }
+  
+      function addCar() {
+          loader.load('./mclaren.gltf', (carmMesh) => {
+  
+              
+              car = carmMesh.scene;
+              car.position.set( carX, carY, carZ );
+              car.rotation.y = carRotation;
+              
+              carLights = new THREE.SpotLight( 0xffffff, 1, 150, 140/180*Math.PI/2 );
+              
+              carLights.position.set( 0, 4, 10 );
+              carLights.target.position.set(0,0,200);
+              carLights.rotation.y = carRotation;
+              carLights.power = 15;
+              carLights.decay = 2;
+  
+              camera.position.set(cameraX, cameraY, cameraZ);
+  
+              controls.update();
+  
+              cameraLight = new THREE.PointLight( 0xffffff, 1, 30 );
+              cameraLight.power = 10;
+              cameraLight.position.set(0,20,0);
+              
+              car.add(carLights);
+              car.add(carLights.target);
+              car.add(cameraLight);
+              scene.add(camera);
+              scene.add(car); 
+          });
+      }
+  
+      function loadGLTF() {
+          loader.load('./cv.gltf', (gltf) => {
+              Mesh = gltf.scene;
+              Mesh.position.set(0, 0, 0);
+              scene.add(Mesh);
+          });
+      }
+  
+      document.addEventListener("keypress", (event)=> {
+          event.preventDefault();
+          controls.autoRotate = false;
+          autoRotateCounter = 0;
+          if(!enableControlRestrictions){
+              controls.maxPolarAngle = 80/180 * Math.PI;
+              controls.minDistance = 20;
+              controls.maxDistance = 50;   
+          }
+          if (wKey.includes(event.keyCode)) { // key code of the keybord key
+              if(car.position.x >= carFinish){
+                  carSpeed -= carAccelaration;
+              }else{
+                  carSpeed = 0;
+              }
+          }else if(sKey.includes(event.keyCode)){
+              if(car.position.x <= carStart){
+                  carSpeed += carAccelaration;
+              }else{
+                  carSpeed = 0;
+              } 
+          }
+          if( Math.abs(carSpeed) > carSpeedLimit) carSpeed = carSpeedLimit * (carSpeed/Math.abs(carSpeed));
+      });
+  
+      function animate() {
+          requestAnimationFrame(animate);
+  
+          
+          car.position.x += carSpeed;
+          if(car.position.x > carStart) car.position.x = carStart;
+          if(car.position.x < carFinish) car.position.x = carFinish;
+          
+          if( carSpeed>0 ){
+              carSpeed -= carDecelaration;
+          }else if( carSpeed < 0 ){
+              carSpeed += carDecelaration;
+          }
+          
+          if( Math.abs(carSpeed) < 0.05 ) carSpeed = 0;
+  
+          autoRotateCounter++;
+          if(autoRotateCounter > timeoutAutoRotate &&  !controls.autoRotate) controls.autoRotate = true;
+          controls.target.x = car.position.x;
+          controls.update();
+  
+          renderer.render(scene, camera);
+      }
+  
+      function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+  
+      addCar();
+      loadGLTF();
+    
+      manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+          document.getElementById('loading').innerText = `Loading world components: ${itemsLoaded} from ${itemsTotal}`;
+      };
+      
+      manager.onLoad = function ( ) {
+          document.getElementById('loading').innerText = "Loading Completed";
+          setTimeout(()=>{
+              document.getElementById('loadingContainer').style.display = 'none';
+              setScene();
+              animate();
+              window.addEventListener( 'resize', onWindowResize, false );
+          },2000)
+      };
+  
+      manager.onError = function ( url ) {
+          document.getElementById('loading').innerText = "Ooopsieee something went wrong. Reload the page!";
+      };
+  </script>
   </body>
 </html>

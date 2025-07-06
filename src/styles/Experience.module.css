@@ -1,0 +1,36 @@
+.experienceContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.experienceIntroductionContainer{
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0px;
+}
+
+.experienceIntroductionTitle {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+}
+.experienceIntroductionText {
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.timelineContainer {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}

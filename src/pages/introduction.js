@@ -11,12 +11,12 @@ const Introduction = () => {
           I take great pride in my impactful contributions to university teams at the forefront of engineering innovation, such as the <b>Aristotle FSAE Racing Team</b>, renowned for crafting 1:2 scale F1 vehicles in the highly competitive FSAE engineering competitions.
           <br /><br />
           From my former employers, I have successfully managed to:
-          <ul>
-            <li><b>CERTH:</b> Contribute to major customers and work on interesting European projects.</li>
-            <li><b>Kenotom:</b> Complete two major releases on time for automotive customers, generating an estimated value of over €2M for the client.</li>
-            <li><b>Fieldscale:</b> Implement a new SaaS product, enhancing the main product's value.</li>
-          </ul>
         </p>
+        <ul>
+          <li><b>CERTH:</b> Contribute to major customers and work on interesting European projects.</li>
+          <li><b>Kenotom:</b> Complete two major releases on time for automotive customers, generating an estimated value of over €2M for the client.</li>
+          <li><b>Fieldscale:</b> Implement a new SaaS product, enhancing the main product's value.</li>
+        </ul>
         <br />
         <p className={styles.introductionText}>
           I am passionate about software development, particularly in the areas of <b>embedded systems</b>, <b>computer vision</b>, and <b>machine learning</b>. My goal is to leverage my skills and experience to create innovative solutions that make a positive impact on society.

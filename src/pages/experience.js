@@ -41,7 +41,7 @@ const Experience = () => {
             <TimelineSeparator>
               <TimelineConnector />
               <TimelineDot color="primary" variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt="Ecodev" src="/ecodev.jpg" sx={{ width: 56, height: 56 }}/>
+                <Avatar alt="Ecodev" src="experience/ecodev.jpg" sx={{ width: 56, height: 56 }}/>
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
@@ -66,7 +66,7 @@ const Experience = () => {
             <TimelineSeparator>
               <TimelineConnector sx={{width: 2, height: 10}}/>
               <TimelineDot color="primary" variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt="Satori" src="/satori.jpg" sx={{ width: 56, height: 56 }}/>
+                <Avatar alt="Satori" src="experience/satori.jpg" sx={{ width: 56, height: 56 }}/>
               </TimelineDot>
             </TimelineSeparator>
             <TimelineContent sx={{ m: 'auto 0' }}>
@@ -89,7 +89,7 @@ const Experience = () => {
             <TimelineSeparator>
               <TimelineConnector sx={{width: 2, height: 10}}/>
               <TimelineDot color="primary" variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt="Certh" src="/certh.jpg" sx={{ width: 56, height: 56 }}/>
+                <Avatar alt="Certh" src="experience/certh.jpg" sx={{ width: 56, height: 56 }}/>
               </TimelineDot>
             </TimelineSeparator>
             <TimelineContent sx={{ m: 'auto 0' }}>
@@ -112,7 +112,7 @@ const Experience = () => {
             <TimelineSeparator>
               <TimelineConnector sx={{width: 2, height: 10}}/>
               <TimelineDot color="primary" variant="outlined" sx={{ padding: 0 }}>
-                <Avatar alt="Kenotom" src="/kenotom.jpg" sx={{ width: 56, height: 56 }}/>
+                <Avatar alt="Kenotom" src="experience/kenotom.jpg" sx={{ width: 56, height: 56 }}/>
               </TimelineDot>
             </TimelineSeparator>
             <TimelineContent sx={{ m: 'auto 0' }}>
@@ -135,7 +135,7 @@ const Experience = () => {
             <TimelineSeparator>
               <TimelineConnector sx={{width: 2, height: 10}}/>
               <TimelineDot color="secondary" variant="outlined" sx={{ padding: 0 }}>
-                <Avatar alt="Fieldscale" src="/fieldscale.jpg" sx={{ width: 56, height: 56 }}/>
+                <Avatar alt="Fieldscale" src="experience/fieldscale.jpg" sx={{ width: 56, height: 56 }}/>
               </TimelineDot>
             </TimelineSeparator>
             <TimelineContent sx={{ m: 'auto 0' }}>

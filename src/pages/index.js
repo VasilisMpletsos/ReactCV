@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import ResponsiveAppBar from "@/components/Navbar";
 import Experience from "./experience";
 import ProgrammingLanguages from "./languages";
+import Projects from "./projects";
 import Introduction from "./introduction";
 import { useRouter } from 'next/router';
 
@@ -30,12 +31,7 @@ export default function Home() {
       case "languages":
         return <ProgrammingLanguages />;
       case "projects":
-        return (
-          <div>
-            <h2>My Projects</h2>
-            <p>Under Construction...</p>
-          </div>
-        );
+        return <Projects />;
       case "education":
         return (
           <div>

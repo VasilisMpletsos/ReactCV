@@ -28,6 +28,12 @@ jobs:
                const coredemo = require('@actions/core')
                return await coredemo.getIDToken()
            result-encoding: string
+      - name: Create .env file with Azure OpenAI variables
+        run: |
+          echo "NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT=${{ secrets.NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT }}" >> .env
+          echo "NEXT_PUBLIC_AZURE_OPENAI_API_KEY=${{ secrets.NEXT_PUBLIC_AZURE_OPENAI_API_KEY }}" >> .env
+          echo "NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME=${{ secrets.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME }}" >> .env
+          echo "NEXT_PUBLIC_AZURE_OPENAI_API_VERSION=${{ secrets.NEXT_PUBLIC_AZURE_OPENAI_API_VERSION }}" >> .env
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

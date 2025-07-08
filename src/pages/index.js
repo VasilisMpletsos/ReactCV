@@ -48,6 +48,10 @@ export default function Home() {
         <meta name="description" content="This is my personal site to show my CV online." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="Vasilis Mpletsos, Bill Bletsos, Βασίλης Μπλέτσος, Βασίλειος Μπλέτσος, Software Engineer Greece, Satori, Ecodevelopment, Certh, Fieldscale" />
+        <meta name="author" content="Vasilis Mpletsos" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <ResponsiveAppBar />
       <Chat />

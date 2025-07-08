@@ -56,6 +56,11 @@ const Chat = () => {
     });
 
     try {
+
+      let messageHistory = messages.map(m => `[${m.role}]: ${m.content}`).join('\n');
+      if (messageHistory.length > 3000) {
+        messageHistory = messageHistory.slice(-3000);
+      }
       const response = await fetch(openaiUrl, 
       {
         method: 'POST',
@@ -76,7 +81,7 @@ const Chat = () => {
             },
             {
               role: "user",
-              content: messages.map(m => `[${m.role}]: ${m.content}`).join('\n')
+              content: messageHistory
             },
             userMessage
           ],
@@ -221,8 +226,7 @@ const Chat = () => {
             <IconButton
               color="primary"
               onClick={sendMessage}
-              // disabled={!input.trim() || loading}
-              disabled={true}
+              disabled={!input.trim() || loading}
               sx={{ marginLeft: 1 }}
             >
               <SendIcon />

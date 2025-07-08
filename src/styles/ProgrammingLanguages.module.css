@@ -1,4 +1,4 @@
-.projectsContainer{
+.programmingLanguagesContainer{
     position: relative;
     width: 100%;
     height: 100%;
@@ -10,30 +10,30 @@
     align-items: center;
 }
 
-.projectsIntroductionContainer{
+.programmingLanguagesIntroductionContainer{
     position: relative;
     width: 100%;
-    max-width: 2100px;
+    max-width: 1900px;
     padding: 0px;
 }
 
-.projectsIntroductionTitle {
+.programmingLanguagesIntroductionTitle {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
     color: #333;
 }
-.projectsIntroductionText {
+.programmingLanguagesIntroductionText {
     text-align: justify;
     margin: 20px 0;
 }
 
-.projectsCard {
+.programmingLanguagesCard {
     cursor: pointer;
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease
 }
     
-.projectsCard:hover {
+.programmingLanguagesCard:hover {
     transform: scale(1.10);
 }

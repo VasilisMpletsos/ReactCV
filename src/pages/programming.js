@@ -18,91 +18,109 @@ const programmingLanguagesData = [
     name: "C",
     image: "programming/c.png",
     score: 5.0,
+    isLoved: true,
   },
   {
     name: "C++",
     image: "programming/c++.png",
     score: 3,
+    isLoved: false,
   },
   {
     name: "Python",
     image: "programming/python.png",
     score: 5,
+    isLoved: true,
   },
   {
     name: "JavaScript",
     image: "programming/javascript.png",
     score: 4.0,
+    isLoved: true,
   },
   {
     name: "Typescript",
     image: "programming/typescript.png",
     score: 3.5,
+    isLoved: false,
   },
   {
     name: "React",
     image: "programming/react.png",
     score: 4.5,
+    isLoved: true,
   },
   {
     name: "FastAPI",
     image: "programming/fastapi.png",
     score: 4.5,
+    isLoved: true,
   },
   {
     name: "Azure",
     image: "programming/azure.png",
     score: 4.5,
+    isLoved: false,
   },
   {
     name: "AWS",
     image: "programming/aws.png",
     score: 2.5,
+    isLoved: false,
   },
   {
     name: "Docker",
     image: "programming/docker.png",
     score: 4,
+    isLoved: false,
   },
   {
     name: "PyTorch",
     image: "programming/pytorch.png",
     score: 4.5,
+    isLoved: true,
   },
   {
     name: "TensorFlow",
     image: "programming/tensorflow.png",
     score: 3,
+    isLoved: false,
   },
   {
     name: "NodeJS",
     image: "programming/nodejs.png",
     score: 3,
+    isLoved: false,
   },
   {
     name: "Django",
     image: "programming/django.png",
     score: 3.5,
+    isLoved: false,
   },
   {
     name: "SQL",
     image: "programming/sql.png",
     score: 3.5,
+    isLoved: false,
   },
   {
     name: "OpenCV",
     image: "programming/opencv.png",
     score: 3.5,
+    isLoved: false,
   },
   {
     name: "Matlab",
     image: "programming/matlab.png",
     score: 2.5,
+    isLoved: false,
   },
   {
     name: "Git",
     image: "programming/git.png",
     score: 4.5,
+    isLoved: false,
   },
 ]
 
@@ -125,8 +143,8 @@ const ProgrammingLanguages = () => {
             useFlexGap
             sx={{ flexWrap: 'wrap', pt: 4 }}
           >
-            {programmingLanguagesData.map((project, index) => (
-                <Item className={styles.programmingLanguagesCard}><LanguageBadge image={project.image} name={project.name} score={project.score} key={index} /></Item>
+            {programmingLanguagesData.map((language, index) => (
+                <Item className={styles.programmingLanguagesCard}><LanguageBadge image={language.image} name={language.name} score={language.score} isLoved={language.isLoved} key={index} /></Item>
             ))}
           </Stack>
       </div>

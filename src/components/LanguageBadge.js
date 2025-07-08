@@ -6,6 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Stack, Typography } from '@mui/material';
 
 const labels = {
@@ -21,9 +22,44 @@ const labels = {
   5: 'Excellent+',
 };
 
-const LanguageBadge = ({image, name, score}) => {
+const LanguageBadge = ({image, name, isLoved, score}) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   return (
-    <Card sx={{ width: 300, height:300 }}>
+    <Card 
+      sx={{ 
+        width: 300, 
+        height: 300,
+        position: 'relative',
+        '&:hover': {
+          transform: 'scale(1.02)',
+          transition: 'transform 0.2s ease-in-out'
+        }
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Love indicator */}
+      {isLoved && (
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 10,
+            right: 10,
+            opacity: isHovered ? 1 : 0.3,
+            transition: 'opacity 0.3s ease-in-out',
+            zIndex: 1
+          }}
+        >
+          <FavoriteIcon 
+            sx={{ 
+              color: '#ff4757', 
+              fontSize: 24,
+              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+            }} 
+          />
+        </Box>
+      )}
       <CardMedia
         component="img"
         height="200"

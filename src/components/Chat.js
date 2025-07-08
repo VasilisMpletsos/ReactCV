@@ -32,12 +32,12 @@ const Chat = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
-  const apiKey = process.env.AZURE_OPENAI_API_KEY
-  const deploymentName = process.env.AZURE_OPENAI_DEPLOYMENT_NAME
-  const apiVersion = process.env.AZURE_OPENAI_API_VERSION
+  const endpoint = process.env.NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT;
+  const apiKey = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_KEY
+  const deploymentName = process.env.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME
+  const apiVersion = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_VERSION
   const openaiUrl = `${endpoint}/openai/deployments/${deploymentName}/chat/completions?api-version=${apiVersion}`;
-
+  console.log("OpenAI URL:", openaiUrl);
   const headers = {
     "Content-Type": "application/json",
     "api-key": apiKey
@@ -56,6 +56,11 @@ const Chat = () => {
     });
 
     try {
+
+      let messageHistory = messages.map(m => `[${m.role}]: ${m.content}`).join('\n');
+      if (messageHistory.length > 3000) {
+        messageHistory = messageHistory.slice(-3000);
+      }
       const response = await fetch(openaiUrl, 
       {
         method: 'POST',
@@ -76,7 +81,7 @@ const Chat = () => {
             },
             {
               role: "user",
-              content: messages.map(m => `[${m.role}]: ${m.content}`).join('\n')
+              content: messageHistory
             },
             userMessage
           ],
@@ -221,8 +226,7 @@ const Chat = () => {
             <IconButton
               color="primary"
               onClick={sendMessage}
-              // disabled={!input.trim() || loading}
-              disabled={true}
+              disabled={!input.trim() || loading}
               sx={{ marginLeft: 1 }}
             >
               <SendIcon />

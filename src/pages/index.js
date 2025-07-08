@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import ResponsiveAppBar from "@/components/Navbar";
+import Chat from "@/components/Chat";
 import Experience from "./experience";
 import ProgrammingLanguages from "./programming";
 import Projects from "./projects";
@@ -53,6 +54,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <ResponsiveAppBar />
+      <Chat />
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >

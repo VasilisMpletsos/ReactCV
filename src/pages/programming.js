@@ -137,7 +137,7 @@ const ProgrammingLanguages = () => {
           on what drives today developments.
         </p>
         <Stack
-            spacing={{ xs: 1, sm: 2, md: 4 }}
+            spacing={4}
             justifyContent="space-evenly"
             direction="row"
             useFlexGap

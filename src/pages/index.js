@@ -8,6 +8,7 @@ import Experience from "./experience";
 import ProgrammingLanguages from "./programming";
 import Projects from "./projects";
 import Introduction from "./introduction";
+import Studies from "./studies";
 import { useRouter } from 'next/router';
 
 const geistSans = Geist({
@@ -34,12 +35,7 @@ export default function Home() {
       case "projects":
         return <Projects />;
       case "education":
-        return (
-          <div>
-            <h2>Education</h2>
-            <p>Under Construction...</p>
-          </div>
-        );
+        return <Studies />;;
       default:
         return <Introduction />;
     }

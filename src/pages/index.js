@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import ResponsiveAppBar from "@/components/Navbar";
 import Experience from "./experience";
-import ProgrammingLanguages from "./languages";
+import ProgrammingLanguages from "./programming";
 import Projects from "./projects";
 import Introduction from "./introduction";
 import { useRouter } from 'next/router';

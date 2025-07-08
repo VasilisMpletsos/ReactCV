@@ -12,6 +12,7 @@ import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton  from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
+import Stack from '@mui/material/Stack';
 import styles from "@/styles/Navbar.module.css";
 
 const pages = ['Programming Languages', 'Projects', 'Work Experience', 'Education'];
@@ -123,11 +124,39 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-            <Tooltip title="Just Me">
-              <Avatar alt="Vasileios Mpletsos" src="/profile.jpg"/>
+          <Stack direction="row" spacing={2} sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+            <Tooltip title="Download My CV">
+              <Avatar 
+                alt="Vasileios Mpletsos"
+                src="/profile.jpg"
+              sx={{ cursor: 'pointer' }}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/Vasileios Mpletsos CV.pdf';
+                link.download = 'Vasileios Mpletsos CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              />
             </Tooltip>
-          </Box>
+            <Tooltip title="LinkedIn">
+              <Avatar
+                alt="Linkedin"
+                src="/linkedin.png"
+                sx={{ cursor: 'pointer' }}
+                onClick={() => window.open('https://www.linkedin.com/in/vasileiosmpletsos/', '_blank')}
+              />
+            </Tooltip>
+            <Tooltip title="Github">
+              <Avatar 
+                alt="Github" 
+                src="/github.png"
+                sx={{ cursor: 'pointer' }}
+                onClick={() => window.open('https://github.com/VasilisMpletsos', '_blank')}
+              />
+            </Tooltip>
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>

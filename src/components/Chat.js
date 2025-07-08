@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ChatIcon from '@mui/icons-material/Chat';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
+import { chatSystemPrompt } from '@/prompt.js'; // Import the prompt from the prompt.js file
 import {
   Dialog,
   DialogTitle,
@@ -69,15 +70,7 @@ const Chat = () => {
         messages: [
             {
               role: "system",
-              content: `You are a helpful assistant. Provide accurate, concise, and professional information about Vasilis Mpletsos’ background, skills, and experience.
-              Vasilis holds a BEng & MEng in Electrical and Computer Engineering and an MSc in Advanced Computer Systems from the Polytechnic School of Aristotle University. He has worked across sectors including research, private enterprise, and public administration, with expertise in AI, software engineering, embedded systems, and cloud architecture (Azure).
-              He has contributed to impactful projects involving predictive analytics, document intelligence, and computer vision for organizations like Ecodev, Satori Analytics, CERTH, Kenotom, and Fieldscale
-              Vasilis is proficient in a wide array of technologies including Python, C, FastAPI, React, PyTorch, Azure, Docker, and more.
-              Vasilis was born in 1996 in Athens, Greece, and has lived in Thessaloniki since 2014.
-              He has a passion for software development, particularly in the areas of embedded systems, computer vision, and machine learning.
-              He has also being part of Aristotle FSAE Racing Team, where he contributed to the design and development of a 1:2 scale F1 vehicle.
-              If the user inquires about topics outside his professional scope, kindly steer the conversation back to his qualifications, technical abilities, or relevant work experience.
-              `
+              content: chatSystemPrompt
             },
             {
               role: "user",

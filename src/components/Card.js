@@ -15,11 +15,11 @@ const MediaCard = ({image, title, content}) => {
         title={title}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" >
           {title}
         </Typography>
         {/* <Typography variant="body2" sx={{ color: 'text.secondary', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }} component="div"> */}
-        <Typography variant="body2" sx={{ color: 'text.secondary'}} component="div">
+        <Typography variant="body2" sx={{ color: 'text.secondary'}} component="div" >
           {content}
         </Typography>
       </CardContent>

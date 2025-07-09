@@ -68,7 +68,16 @@ const LanguageBadge = ({image, name, isLoved, score}) => {
         image={image}
       />
       <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography 
+          gutterBottom 
+          variant="h5" 
+          component="div"
+          sx={{
+            fontFamily: '"Caveat", cursive',
+            fontSize: 'x-large',
+            fontStyle: 'normal'
+          }}
+        >
           {name}
         </Typography>
         <Stack direction="row" spacing={2} alignItems="center">

@@ -6,13 +6,35 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #157fdb 0%, #485563 100%);
+    box-shadow: 0 4px 24px rgba(40, 62, 81, 0.15), 0 1.5px 8px rgba(72, 85, 99, 0.08);
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition: 
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s,
+        outline-color 0.2s;
+}
+
+.chatPlacement:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 32px 4px rgba(30, 144, 255, 0.25), 0 2px 12px rgba(0,0,0,0.10);
+    outline-color: #7ecbff;
+}
+
+/* Example for icon color inside the button */
+.chatPlacement svg {
+    color: #f7fafd; /* Vibrant blue, adjust as needed */
+    width: 36px;
+    height: 36px;
+    filter: drop-shadow(0 0 6px #b3e0ff);
+    transition: color 0.2s;
+}
+
+.chatPlacement:hover svg {
+    color: #003d83;
 }
 
 .chatPlacement:hover {

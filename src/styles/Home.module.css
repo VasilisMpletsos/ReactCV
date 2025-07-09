@@ -30,9 +30,9 @@
 .introductionText {
     text-align: justify;
     margin: 20px 0;
-}
-
-.introductionContainer ul {
+  }
+  
+  .introductionContainer ul {
     list-style-type: disc;
     padding-left: 20px;
 }

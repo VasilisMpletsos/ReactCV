@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ChatIcon from '@mui/icons-material/Chat';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
+import Avatar from '@mui/material/Avatar';
 import { chatSystemPrompt } from '@/prompt.js'; // Import the prompt from the prompt.js file
 import {
   Dialog,
@@ -50,12 +51,6 @@ const Chat = () => {
     setInput('');
     setLoading(true);
 
-    const body = JSON.stringify({
-      messages: messages,
-      max_tokens: 300,
-      temperature: 0.7
-    });
-
     try {
 
       let messageHistory = messages.map(m => `[${m.role}]: ${m.content}`).join('\n');
@@ -93,7 +88,7 @@ const Chat = () => {
         setTimeout(() => {
           const dialog = document.querySelector('[role="dialog"] .MuiDialogContent-root > div');
           if (dialog) {
-            dialog.scrollTop = dialog.scrollHeight;
+            dialog.scrollTo({ top: dialog.scrollHeight, behavior: 'smooth' });
           }
         }, 50);
       }
@@ -150,7 +145,13 @@ const Chat = () => {
           alignItems: 'center',
           borderBottom: '1px solid #e0e0e0'
         }}>
-          <Typography variant="h6">Chat with my AI Assistant</Typography>
+          <Avatar 
+            alt="Chatbot Avatar"
+            src="/bot.png"
+          />
+          <Typography variant="h6">
+            Chat with my AI Assistant
+          </Typography>
           <IconButton onClick={handleClose} size="small">
             <CloseIcon />
           </IconButton>
@@ -179,7 +180,7 @@ const Chat = () => {
                   padding: 2,
                   maxWidth: '80%',
                   alignSelf: message.role === 'user' ? 'flex-end' : 'flex-start',
-                  backgroundColor: message.role === 'user' ? '#e3f2fd' : '#f5f5f5',
+                  backgroundColor: message.role === 'user' ? 'lightskyblue' : 'moccasin',
                   borderRadius: 2
                 }}
               >
@@ -202,12 +203,12 @@ const Chat = () => {
             padding: 2, 
             display: 'flex', 
             gap: 1,
-            alignItems: 'flex-end'
+            alignItems: 'center',
+            justifyItems: 'space-between',
           }}>
             <TextField
               fullWidth
-              multiline
-              maxRows={3}
+              maxRows={1}
               variant="outlined"
               placeholder="Type your message..."
               value={input}
@@ -216,10 +217,13 @@ const Chat = () => {
               disabled={loading}
               size="small"
             />
+            <Typography variant="caption" color="textSecondary">
+              {input.length}/300
+            </Typography>
             <IconButton
               color="primary"
               onClick={sendMessage}
-              disabled={!input.trim() || loading}
+              disabled={!input.trim() || loading || input.length > 300}
               sx={{ marginLeft: 1 }}
             >
               <SendIcon />

@@ -15,7 +15,7 @@ import Menu from '@mui/material/Menu';
 import Stack from '@mui/material/Stack';
 import styles from "@/styles/Navbar.module.css";
 
-const pages = ['Programming Languages', 'Projects', 'Work Experience', 'Education'];
+const pages = ['Stack', 'Projects', 'Experience', 'Education', 'Contact'];
 
 function ResponsiveAppBar() {
 
@@ -24,17 +24,20 @@ function ResponsiveAppBar() {
 
   const handlePageChange = (page) => {
     switch (page) {
-      case 'Programming Languages':
+      case 'Stack':
         router.push('/?section=languages');
         break;
       case 'Projects':
         router.push('/?section=projects');
         break;
-      case 'Work Experience':
+      case 'Experience':
         router.push('/?section=experience');
         break;
       case 'Education':
         router.push('/?section=education');
+        break;
+      case 'Contact':
+        router.push('/?section=contact');
         break;
       default:
         break;

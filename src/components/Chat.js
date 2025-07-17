@@ -20,6 +20,8 @@ import {
   Divider
 } from '@mui/material';
 
+const TOKEN_LIMIT = 100000; // Set a token limit for the chat
+
 const Chat = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -30,6 +32,7 @@ const Chat = () => {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [tokens, setUsedTokens] = useState(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -39,7 +42,6 @@ const Chat = () => {
   const deploymentName = process.env.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME
   const apiVersion = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_VERSION
   const openaiUrl = `${endpoint}/openai/deployments/${deploymentName}/chat/completions?api-version=${apiVersion}`;
-  console.log("OpenAI URL:", openaiUrl);
   const headers = {
     "Content-Type": "application/json",
     "api-key": apiKey
@@ -83,7 +85,19 @@ const Chat = () => {
         setMessages(prev => [...prev, { role: 'system', content: "Failed to get response" }]);
       }else{
         const data = await response.json();
+        setUsedTokens(prev => prev + data.usage.total_tokens);
         setMessages(prev => [...prev, { role: 'system', content: data.choices[0].message.content }]);
+        console.log("So far used tokens:", tokens);
+        if (tokens >= TOKEN_LIMIT) {
+          // If token limit reached, show a message
+            setMessages(prev => [
+            ...prev, 
+            { 
+              role: 'system', 
+              content: "Whew! I've answered so many questions, I need a nap 😴. Please come back later with more questions! 😊" 
+            }
+            ]);
+        }
         // go to the bottom of the chat
         setTimeout(() => {
           const dialog = document.querySelector('[role="dialog"] .MuiDialogContent-root > div');
@@ -223,7 +237,7 @@ const Chat = () => {
             <IconButton
               color="primary"
               onClick={sendMessage}
-              disabled={!input.trim() || loading || input.length > 300}
+              disabled={!input.trim() || loading || input.length > 300 || tokens >= TOKEN_LIMIT}
               sx={{ marginLeft: 1 }}
             >
               <SendIcon />

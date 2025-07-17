@@ -159,6 +159,14 @@ function ResponsiveAppBar() {
                 onClick={() => window.open('https://github.com/VasilisMpletsos', '_blank')}
               />
             </Tooltip>
+            <Tooltip title="Orcid">
+              <Avatar 
+                alt="Orcid" 
+                src="/orcid.png"
+                sx={{ cursor: 'pointer' }}
+                onClick={() => window.open('https://orcid.org/0009-0008-8887-543X', '_blank')}
+              />
+            </Tooltip>
           </Stack>
         </Toolbar>
       </Container>

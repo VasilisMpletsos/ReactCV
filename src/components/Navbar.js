@@ -159,6 +159,14 @@ function ResponsiveAppBar() {
                 onClick={() => window.open('https://github.com/VasilisMpletsos', '_blank')}
               />
             </Tooltip>
+            <Tooltip title="3D Prints">
+              <Avatar 
+                alt="Creality" 
+                src="/creality.png"
+                sx={{ cursor: 'pointer', bgcolor: 'white' }}
+                onClick={() => window.open('https://www.crealitycloud.com/user/3972456515', '_blank')}
+              />
+            </Tooltip>
           </Stack>
         </Toolbar>
       </Container>

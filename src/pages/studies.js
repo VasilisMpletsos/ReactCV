@@ -28,29 +28,61 @@ const studiesData = [
 ];
 
 const Studies = () => {
-  return (
-    <div>
+return (
+    <div style={{ maxWidth: 1300, margin: "0 auto", padding: "2rem 1rem" }}>
+        <Typography variant="h4" align="center" gutterBottom>
+            Studies & Education
+        </Typography>
         {studiesData.map((study, index) => (
-            <Accordion key={index}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`panel${index}-content`}
-                id={`panel${index}-header`}
-            >
-                <Typography variant="h6">{study.title}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography variant="subtitle1">{study.institution}</Typography>
-                <Typography variant="body2" color="textSecondary">{study.period}</Typography>
-                <Typography variant="body1">{study.details}</Typography>
-            </AccordionDetails>
-            <AccordionActions>
-                <Button size="small" color="primary">View Details</Button>
-            </AccordionActions>
+            <Accordion key={index} sx={{ mb: 2, borderRadius: 2, boxShadow: 2 }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={`panel${index}-content`}
+                    id={`panel${index}-header`}
+                >
+                    <Typography variant="h6">{study.title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography variant="subtitle1" color="primary">
+                        {study.institution}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                        {study.period}
+                    </Typography>
+                    <Typography variant="body1">{study.details}</Typography>
+                </AccordionDetails>
+                <AccordionActions>
+                    <Button
+                        size="small"
+                        color="primary"
+                        href="https://orcid.org/0009-0008-8887-543X"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View ORCID
+                    </Button>
+                </AccordionActions>
             </Accordion>
         ))}
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+            <a
+                id="cy-effective-orcid-url"
+                className="underline"
+                href="https://orcid.org/0009-0008-8887-543X"
+                target="_blank"
+                rel="me noopener noreferrer"
+                style={{ verticalAlign: "top", display: "inline-flex", alignItems: "center", textDecoration: "none", color: "#3f51b5", fontWeight: 500 }}
+            >
+                <img
+                    src="https://orcid.org/sites/default/files/images/orcid_16x16.png"
+                    style={{ width: 16, height: 16, marginRight: 6 }}
+                    alt="ORCID iD icon"
+                />
+                https://orcid.org/0009-0008-8887-543X
+            </a>
+        </div>
     </div>
-  );
+);
 }
 
 export default Studies;

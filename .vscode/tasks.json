@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: dev",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "detail": "Start Next.js development server"
+    },
+    {
+      "label": "npm: build",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "detail": "Build Next.js application for production"
+    },
+    {
+      "label": "npm: start",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "start"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "detail": "Start Next.js production server"
+    },
+    {
+      "label": "npm: lint",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": ["$eslint-stylish"],
+      "detail": "Run ESLint to check code quality"
+    },
+    {
+      "label": "npm: export",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "export"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "detail": "Build and export Next.js application as static files"
+    }
+  ]
+}

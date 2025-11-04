@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
-const pages = ["Stack", "Projects", "Experience", "Education", "Contact"];
+const pages = ["Stack", "Projects", "Experience", "Education", "Contact", "Neural Net"];
 
 function ResponsiveAppBar() {
   const router = useRouter();
@@ -37,6 +37,9 @@ function ResponsiveAppBar() {
         break;
       case "Contact":
         router.push("/?section=contact");
+        break;
+      case "Neural Net":
+        router.push("/?section=neuralnet");
         break;
       default:
         break;

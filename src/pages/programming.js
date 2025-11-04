@@ -1,17 +1,7 @@
-import * as React from 'react';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import styles from "@/styles/ProgrammingLanguages.module.css";
-import Stack from '@mui/material/Stack';
-import LanguageBadge from '../components/LanguageBadge';
-import Item from '@mui/material/Grid';
+import Item from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import LanguageBadge from "../components/LanguageBadge";
 
 const programmingLanguagesData = [
   {
@@ -122,8 +112,7 @@ const programmingLanguagesData = [
     score: 4.5,
     isLoved: false,
   },
-]
-
+];
 
 const ProgrammingLanguages = () => {
   return (
@@ -131,25 +120,28 @@ const ProgrammingLanguages = () => {
       <div className={styles.programmingLanguagesIntroductionContainer}>
         <h1 className={styles.programmingLanguagesIntroductionTitle}>Tech Stack</h1>
         <p className={styles.programmingLanguagesIntroductionText}>
-          My technical expertise centers on machine learning and artificial intelligence, where I have developed and deployed intelligent solutions across various domains.
-          In addition to my AI focus, I possess hands on experience in both frontend and backend application development, enabling me to build robust and user friendly systems.
-          My Electronics Engineer background provided me with valuable skills in low-level C programming and performance-critical software engineering so i am gratefull that i have a grasp
-          on what drives today developments.
+          My technical expertise centers on machine learning and artificial intelligence, where I have developed and deployed
+          intelligent solutions across various domains. In addition to my AI focus, I possess hands on experience in both frontend
+          and backend application development, enabling me to build robust and user friendly systems. My Electronics Engineer
+          background also equipped me with valuable skills in low-level programming and performance-critical software engineering
+          so i am grateful that i have a grasp on what drives today developments as well.
         </p>
-        <Stack
-            spacing={4}
-            justifyContent="space-evenly"
-            direction="row"
-            useFlexGap
-            sx={{ flexWrap: 'wrap', pt: 4 }}
-          >
-            {programmingLanguagesData.map((language, index) => (
-                <Item className={styles.programmingLanguagesCard}><LanguageBadge image={language.image} name={language.name} score={language.score} isLoved={language.isLoved} key={index} /></Item>
-            ))}
-          </Stack>
+        <Stack spacing={4} justifyContent='space-evenly' direction='row' useFlexGap sx={{ flexWrap: "wrap", pt: 4 }}>
+          {programmingLanguagesData.map((language, index) => (
+            <Item className={styles.programmingLanguagesCard}>
+              <LanguageBadge
+                image={language.image}
+                name={language.name}
+                score={language.score}
+                isLoved={language.isLoved}
+                key={index}
+              />
+            </Item>
+          ))}
+        </Stack>
       </div>
     </div>
   );
-}
+};
 
 export default ProgrammingLanguages;

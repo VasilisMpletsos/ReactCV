@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import Stack from '@mui/material/Stack';
-import Item from '@mui/material/Grid';
 import styles from "@/styles/Projects.module.css";
-import Card from '../components/Card';
+import Item from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Card from "../components/Card";
 
 const projectsData = [
   {
@@ -82,9 +81,9 @@ const projectsData = [
     title: "Greek National Research Center - Palimpsisto",
     content:
       "Developed an automated, intent-driven chatbot and fine-tuned a custom large language model (LLM) on archaeological preservation topics and methodologies. The solution was designed to deliver accurate, context-aware responses, supporting archaeologists in their research and preservation efforts while significantly improving operational efficiency.",
+    url: "https://www.researchgate.net/publication/388901739_Towards_Natural_Language_Agents_for_Archaeological_Conservation_Assistance",
   },
 ];
-
 
 const Projects = () => {
   return (
@@ -93,18 +92,20 @@ const Projects = () => {
         <h1 className={styles.projectsIntroductionTitle}>Real World Projects</h1>
         <Stack
           spacing={{ xs: 1, sm: 2, md: 4 }}
-          justifyContent="space-evenly"
-          direction="row"
+          justifyContent='space-evenly'
+          direction='row'
           useFlexGap
-          sx={{ flexWrap: 'wrap', pt: 4 }}
+          sx={{ flexWrap: "wrap", pt: 4 }}
         >
           {projectsData.map((project, index) => (
-              <Item className={styles.projectsCard}><Card title={project.title} image={project.image} content={project.content} key={index} /></Item>
+            <Item className={styles.projectsCard}>
+              <Card title={project.title} image={project.image} content={project.content} url={project.url} key={index} />
+            </Item>
           ))}
         </Stack>
       </div>
     </div>
   );
-}
+};
 
 export default Projects;

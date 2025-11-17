@@ -117,12 +117,14 @@ const NeuralNet = () => {
   // State for activations
   const [activations, setActivations] = useState([]);
   
+  // State for user input values (7 inputs for the first layer)
+  const [inputs, setInputs] = useState(Array(layers[0]).fill(0.5));
+  
   // Initialize activations on mount
   useEffect(() => {
-    const input = Array(layers[0]).fill(0).map(() => Math.random());
-    const newActivations = forwardPass(input, weights, layers);
+    const newActivations = forwardPass(inputs, weights, layers);
     setActivations(newActivations);
-  }, [weights]);
+  }, [weights, inputs]);
   
   // Compute all neuron positions for each layer
   const layerPositions = layers.map((neurons, i) => getLayerPositions(i * layerSpacing, neurons));
@@ -141,11 +143,19 @@ const NeuralNet = () => {
     }
   }
   
-  // Function to run prediction with new input
+  // Function to run prediction with user inputs
   const runPrediction = () => {
-    const input = Array(layers[0]).fill(0).map(() => Math.random());
-    const newActivations = forwardPass(input, weights, layers);
+    const newActivations = forwardPass(inputs, weights, layers);
     setActivations(newActivations);
+  };
+  
+  // Function to handle input change
+  const handleInputChange = (index, value) => {
+    const newInputs = [...inputs];
+    const floatValue = parseFloat(value);
+    // Validate and clamp the value between 0 and 1
+    newInputs[index] = isNaN(floatValue) ? 0 : Math.max(0, Math.min(1, floatValue));
+    setInputs(newInputs);
   };
   
   // Get final prediction
@@ -162,7 +172,9 @@ const NeuralNet = () => {
         background: "rgba(255, 255, 255, 0.9)",
         padding: "20px",
         borderRadius: "10px",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+        maxHeight: "90vh",
+        overflowY: "auto"
       }}>
         <h3 style={{ margin: "0 0 10px 0", fontSize: "18px", color: "#333" }}>Neural Network</h3>
         <p style={{ margin: "5px 0", fontSize: "14px", color: "#666" }}>
@@ -173,6 +185,34 @@ const NeuralNet = () => {
             {(prediction * 100).toFixed(2)}%
           </strong>
         </p>
+        
+        {/* Input fields for the 7 neurons */}
+        <div style={{ marginTop: "15px", marginBottom: "10px" }}>
+          <h4 style={{ margin: "0 0 10px 0", fontSize: "14px", color: "#333" }}>Input Values (0-1):</h4>
+          {inputs.map((value, index) => (
+            <div key={index} style={{ marginBottom: "8px", display: "flex", alignItems: "center" }}>
+              <label style={{ fontSize: "12px", color: "#666", width: "70px" }}>
+                Neuron {index + 1}:
+              </label>
+              <input
+                type="number"
+                min="0"
+                max="1"
+                step="0.01"
+                value={value.toFixed(2)}
+                onChange={(e) => handleInputChange(index, e.target.value)}
+                style={{
+                  padding: "5px 8px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  fontSize: "12px",
+                  width: "80px"
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        
         <button 
           onClick={runPrediction}
           style={{
@@ -184,7 +224,8 @@ const NeuralNet = () => {
             borderRadius: "5px",
             cursor: "pointer",
             fontSize: "14px",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            width: "100%"
           }}
           onMouseOver={(e) => e.target.style.background = "#3A7DD9"}
           onMouseOut={(e) => e.target.style.background = "#4C9AFF"}
@@ -192,7 +233,7 @@ const NeuralNet = () => {
           Run Prediction
         </button>
         <p style={{ margin: "10px 0 0 0", fontSize: "12px", color: "#999", maxWidth: "250px" }}>
-          Click to run with random input. Neuron colors show activation (blue=low, red=high). 
+          Adjust input values and click to run prediction. Neuron colors show activation (blue=low, red=high). 
           Line colors show weights (green=positive, red=negative).
         </p>
       </div>

@@ -8,13 +8,26 @@ const projectsData = [
     image: "projects/ecodev_reporting.png",
     title: "Ecodev - Advanced Reporting Platform",
     content:
-      "Architected and implemented a comprehensive reporting platform integrating Power BI components, with granular access control via user groups and direct permissions. Delivered advanced data visualizations powered by a proprietary larvae detection machine learning model, enabling actionable insights for stakeholders.",
+      "Implemented a comprehensive reporting platform integrating Power BI components, with granular access control via user groups and direct permissions. Delivered advanced data visualizations powered by a proprietary larvae detection machine learning model and created an analytical historical breeding site platform map enabling actionable insights & planning for stakeholders.",
+  },
+  {
+    image: "projects/ecodev_bad.jpg",
+    title: "Ecodev - Mosquito Abundance Forecasting",
+    content:
+      "Architected a high-accuracy forecasting model for mosquito population dynamics using an ensemble of CatBoost and XGBoost. Leveraged a complex pipeline of IoT, meteorological, historical, Corine land cover and Copernicus earth observation data, deploying the final model to support real-time public health information and preventative protection measures.",
+    url: "https://mosquitovision.agrostis.gr/maps2",
   },
   {
     image: "projects/ecodev_bol.png",
     title: "Ecodev - Mosquito Larvae Presence Prediction",
     content:
       "Developed and deployed a machine learning model to accurately predict the presence of Culex, Aedes, and Anopheles mosquito species. The solution leveraged multi-source data and provided a scalable inference pipeline, significantly improving vector control decision-making.",
+  },
+  {
+    image: "projects/ecodev_sheeplsd.jpg",
+    title: "Ecodev - Sheep LSD Greek Disinfection Station Management Platform",
+    content:
+      "Designed and implemented a comprehensive management platform for the Greek Sheep Lumpy Skin Disease (LSD) disinfection stations. The solution provided fine grained information logging for each disinfection station, including geospatial data, disinfection schedules, and operational metrics, enabling efficient management and response to the LSD outbreak in Greece 2025 & 2026.",
   },
   {
     image: "projects/crude_oil_mixture.png",

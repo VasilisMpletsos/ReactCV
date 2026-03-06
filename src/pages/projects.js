@@ -24,6 +24,12 @@ const projectsData = [
       "Developed and deployed a machine learning model to accurately predict the presence of Culex, Aedes, and Anopheles mosquito species. The solution leveraged multi-source data and provided a scalable inference pipeline, significantly improving vector control decision-making.",
   },
   {
+    image: "projects/ecodev_greece_spatial.jpg",
+    title: "Ecodev - Detailed Spatial Mapping of Greece",
+    content:
+      "Architected a multi-tier geospatial data infrastructure on Postgres for Ecodev from administrative regions down to individual settlements in Greece. By persisting this high-resolution spatial hierarchy we enable high-performance, real-time querying and a way for those data to act as the foundational layer for predictive models",
+  },
+  {
     image: "projects/ecodev_sheeplsd.jpg",
     title: "Ecodev - Sheep LSD Greek Disinfection Station Management Platform",
     content:

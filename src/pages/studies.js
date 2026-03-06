@@ -14,12 +14,12 @@ const studiesData = [
   {
     title: "MSc in Advanced Computer Systems",
     institution: "Aristotle University of Thessaloniki - Polytechnic School",
-    period: "2022 – Present",
+    period: "2022 – 2025",
     details: `Master of Science deep diving in advanced computer systems, focusing on machine learning, computer vision, and data science.
         I completed the program with my diploma thesis on "Accelerated Options Predictions with Field Programmable Gate Arrays (FPGA)".
         The thesis explores the use of FPGAs to enhance the performance of Black-Scholes prediction algorithm, leveraging hardware acceleration for real-time data processing and analysis
         and comparing the FPGA with various GPUs and classical CPU implementation.`,
-    thesis_url: "https://drive.google.com/file/d/1tPqz4M5raiGxp5-V16UTT-Dtgl-Ru8uJ/view?usp=sharing",
+    thesis_url: "https://drive.google.com/file/d/1VP1P9frTqY8mg1UPXWeEPFxtTPHDzn9X/view?usp=drive_link",
   },
   {
     title: "BEng & MEng in Electrical and Computer Engineering",

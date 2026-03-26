@@ -38,11 +38,10 @@ const Chat = () => {
   const endpoint = process.env.NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT;
   const apiKey = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_KEY;
   const deploymentName = process.env.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME;
-  const apiVersion = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_VERSION;
   const openaiUrl = endpoint;
   const headers = {
     "Content-Type": "application/json",
-    "api-key": apiKey
+    "Authorization": `Bearer ${apiKey}`
   };
 
   const sendMessage = async () => {
@@ -57,12 +56,13 @@ const Chat = () => {
       if (messageHistory.length > 3000) {
         messageHistory = messageHistory.slice(-3000);
       }
+      setMessages(prev => [...prev, userMessage]);
       const response = await fetch(openaiUrl, 
       {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({
-        messages: [
+        input: [
             {
               role: "system",
               content: chatSystemPrompt
@@ -77,13 +77,12 @@ const Chat = () => {
         }),
       });
 
-      setMessages(prev => [...prev, userMessage]);
       if (!response.ok) {
         setMessages(prev => [...prev, { role: 'system', content: "Failed to get response" }]);
       }else{
         const data = await response.json();
         setUsedTokens(prev => prev + data.usage.total_tokens);
-        setMessages(prev => [...prev, { role: 'system', content: data.choices[0].message.content }]);
+        setMessages(prev => [...prev, { role: 'system', content: data.output[1].content[0].text }]);
         console.log("So far used tokens:", tokens);
         if (tokens >= TOKEN_LIMIT) {
           // If token limit reached, show a message

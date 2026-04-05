@@ -5,6 +5,13 @@ import Card from "../components/Card";
 
 const projectsData = [
   {
+    image: "projects/riddlego.jpg",
+    title: "V2 Apps - RiddleGo Mobile Game",
+    content:
+      "A fun mobile game soon available on both Android and iOS that harnesses AI to deliver an awesome riddle solving experience. More to be revealed soon!",
+    url: "https://riddlego.eu/",
+  },
+  {
     image: "projects/ecodev_reporting.png",
     title: "Ecodev - Advanced Reporting Platform",
     content:

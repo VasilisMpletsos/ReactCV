@@ -8,8 +8,51 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
+const experiences = [
+  {
+    company: "Ecodev",
+    role: "Lead AI Software Engineer",
+    date: "May 2025 - Present",
+    logo: "experience/ecodev.jpg",
+    dotColor: "primary",
+  },
+  {
+    company: "Satori Analytics",
+    role: "AI Software Engineer & Azure",
+    date: "Feb 2024 - Apr 2025",
+    logo: "experience/satori.jpg",
+    dotColor: "primary",
+  },
+  {
+    company: "Greek National Research Center",
+    role: "AI Research Engineer",
+    date: "Jan 2023 - Jan 2024",
+    logo: "experience/certh.jpg",
+    dotColor: "primary",
+  },
+  {
+    company: "Kenotom",
+    role: "Firmware Engineer",
+    date: "2022",
+    logo: "experience/kenotom.jpg",
+    dotColor: "primary",
+  },
+  {
+    company: "Fieldscale",
+    role: "Intern - Full Stack Engineer",
+    date: "Nov 2020 - Mar 2021",
+    logo: "experience/fieldscale.jpg",
+    dotColor: "secondary",
+  },
+];
 
 const Experience = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"), { noSsr: true });
+
   return (
     <div className={styles.experienceContainer}>
       <div className={styles.experienceIntroductionContainer}>
@@ -30,102 +73,44 @@ const Experience = () => {
         </p>
       </div>
       <div className={styles.timelineContainer}>
-        <Timeline position='alternate'>
-          {/* ECODEV */}
-          <TimelineItem>
-            <TimelineOppositeContent sx={{ m: "auto 0" }} align='right' variant='body2' color='text.primary'>
-              May 2025 - Present
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector />
-              <TimelineDot color='primary' variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt='Ecodev' src='experience/ecodev.jpg' sx={{ width: 56, height: 56 }} />
-              </TimelineDot>
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent sx={{ m: "auto 0" }}>
-              <Typography variant='h6' component='span'>
-                Ecodev
-              </Typography>
-              <Typography>Lead AI Software Engineer</Typography>
-            </TimelineContent>
-          </TimelineItem>
-
-          {/* SATORI */}
-          <TimelineItem>
-            <TimelineOppositeContent sx={{ m: "auto 0" }} variant='body2' color='text.secondary'>
-              Feb 2024 - Apr 2025
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={{ width: 2, height: 10 }} />
-              <TimelineDot color='primary' variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt='Satori' src='experience/satori.jpg' sx={{ width: 56, height: 56 }} />
-              </TimelineDot>
-            </TimelineSeparator>
-            <TimelineContent sx={{ m: "auto 0" }}>
-              <Typography variant='h6' component='span'>
-                Satori Analytics
-              </Typography>
-              <Typography>AI Software Engineer & Azure</Typography>
-            </TimelineContent>
-          </TimelineItem>
-
-          {/* CERTH */}
-          <TimelineItem>
-            <TimelineOppositeContent sx={{ m: "auto 0" }} variant='body2' color='text.secondary'>
-              Jan 2023 - Jan 2024
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={{ width: 2, height: 10 }} />
-              <TimelineDot color='primary' variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt='Certh' src='experience/certh.jpg' sx={{ width: 56, height: 56 }} />
-              </TimelineDot>
-            </TimelineSeparator>
-            <TimelineContent sx={{ m: "auto 0" }}>
-              <Typography variant='h6' component='span'>
-                Greek National Research Center
-              </Typography>
-              <Typography>AI Research Engineer</Typography>
-            </TimelineContent>
-          </TimelineItem>
-
-          {/* KENOTOM */}
-          <TimelineItem>
-            <TimelineOppositeContent sx={{ m: "auto 0" }} variant='body2' color='text.secondary'>
-              2022
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={{ width: 2, height: 10 }} />
-              <TimelineDot color='primary' variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt='Kenotom' src='experience/kenotom.jpg' sx={{ width: 56, height: 56 }} />
-              </TimelineDot>
-            </TimelineSeparator>
-            <TimelineContent sx={{ m: "auto 0" }}>
-              <Typography variant='h6' component='span'>
-                Kenotom
-              </Typography>
-              <Typography>Firmware Engineer</Typography>
-            </TimelineContent>
-          </TimelineItem>
-
-          {/* FIELDSCALE */}
-          <TimelineItem>
-            <TimelineOppositeContent sx={{ m: "auto 0" }} variant='body2' color='text.secondary'>
-              Nov 2020 - Mar 2021
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={{ width: 2, height: 10 }} />
-              <TimelineDot color='secondary' variant='outlined' sx={{ padding: 0 }}>
-                <Avatar alt='Fieldscale' src='experience/fieldscale.jpg' sx={{ width: 56, height: 56 }} />
-              </TimelineDot>
-            </TimelineSeparator>
-            <TimelineContent sx={{ m: "auto 0" }}>
-              <Typography variant='h6' component='span'>
-                Fieldscale
-              </Typography>
-              <Typography>Intern - Full Stack Engineer</Typography>
-            </TimelineContent>
-          </TimelineItem>
+        <Timeline position={isMobile ? "right" : "alternate"}>
+          {experiences.map((exp, index) => (
+            <TimelineItem key={exp.company}>
+              {!isMobile && (
+                <TimelineOppositeContent
+                  sx={{ m: "auto 0" }}
+                  align={index === 0 ? "right" : undefined}
+                  variant="body2"
+                  color={index === 0 ? "text.primary" : "text.secondary"}
+                >
+                  {exp.date}
+                </TimelineOppositeContent>
+              )}
+              <TimelineSeparator>
+                {index === 0 && <TimelineConnector />}
+                {index !== 0 && <TimelineConnector sx={{ width: 2, height: 10 }} />}
+                <TimelineDot color={exp.dotColor} variant="outlined" sx={{ padding: 0 }}>
+                  <Avatar
+                    alt={exp.company}
+                    src={exp.logo}
+                    sx={{ width: isMobile ? 40 : 56, height: isMobile ? 40 : 56 }}
+                  />
+                </TimelineDot>
+                {index === 0 && <TimelineConnector />}
+              </TimelineSeparator>
+              <TimelineContent sx={{ m: "auto 0" }}>
+                {isMobile && (
+                  <Typography variant="body2" color={index === 0 ? "text.primary" : "text.secondary"} sx={{ mb: 0.5 }}>
+                    {exp.date}
+                  </Typography>
+                )}
+                <Typography variant={isMobile ? "subtitle1" : "h6"} component="span">
+                  {exp.company}
+                </Typography>
+                <Typography>{exp.role}</Typography>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
         </Timeline>
       </div>
     </div>

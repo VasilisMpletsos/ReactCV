@@ -19,7 +19,7 @@ const studiesData = [
         I completed the program with my diploma thesis on "Accelerated Options Predictions with Field Programmable Gate Arrays (FPGA)".
         The thesis explores the use of FPGAs to enhance the performance of Black-Scholes prediction algorithm, leveraging hardware acceleration for real-time data processing and analysis
         and comparing the FPGA with various GPUs and classical CPU implementation.`,
-    thesis_url: "https://drive.google.com/file/d/1VP1P9frTqY8mg1UPXWeEPFxtTPHDzn9X/view?usp=drive_link",
+    thesis_url: "https://ikee.lib.auth.gr/record/373355?ln=en",
   },
   {
     title: "BEng & MEng in Electrical and Computer Engineering",

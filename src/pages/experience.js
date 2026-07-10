@@ -8,9 +8,9 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
 const experiences = [
   {
@@ -201,44 +201,6 @@ const Experience = () => {
               <Typography>Intern - Full Stack Engineer</Typography>
             </TimelineContent>
           </TimelineItem>
-        <Timeline position={isMobile ? "right" : "alternate"}>
-          {experiences.map((exp, index) => (
-            <TimelineItem key={exp.company}>
-              {!isMobile && (
-                <TimelineOppositeContent
-                  sx={{ m: "auto 0" }}
-                  align={index === 0 ? "right" : undefined}
-                  variant="body2"
-                  color={index === 0 ? "text.primary" : "text.secondary"}
-                >
-                  {exp.date}
-                </TimelineOppositeContent>
-              )}
-              <TimelineSeparator>
-                {index === 0 && <TimelineConnector />}
-                {index !== 0 && <TimelineConnector sx={{ width: 2, height: 10 }} />}
-                <TimelineDot color={exp.dotColor} variant="outlined" sx={{ padding: 0 }}>
-                  <Avatar
-                    alt={exp.company}
-                    src={exp.logo}
-                    sx={{ width: isMobile ? 40 : 56, height: isMobile ? 40 : 56 }}
-                  />
-                </TimelineDot>
-                {index === 0 && <TimelineConnector />}
-              </TimelineSeparator>
-              <TimelineContent sx={{ m: "auto 0" }}>
-                {isMobile && (
-                  <Typography variant="body2" color={index === 0 ? "text.primary" : "text.secondary"} sx={{ mb: 0.5 }}>
-                    {exp.date}
-                  </Typography>
-                )}
-                <Typography variant={isMobile ? "subtitle1" : "h6"} component="span">
-                  {exp.company}
-                </Typography>
-                <Typography>{exp.role}</Typography>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
         </Timeline>
       </div>
     </div>

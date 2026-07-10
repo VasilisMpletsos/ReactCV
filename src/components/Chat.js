@@ -1,24 +1,22 @@
-import * as React from 'react';
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { chatSystemPrompt } from '@/prompt.js'; // Import the prompt from the prompt.js file
 import styles from "@/styles/Chat.module.css";
-import IconButton from '@mui/material/IconButton';
 import ChatIcon from '@mui/icons-material/Chat';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
-import Avatar from '@mui/material/Avatar';
-import { chatSystemPrompt } from '@/prompt.js'; // Import the prompt from the prompt.js file
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  TextField,
   Box,
-  Paper,
   CircularProgress,
-  Divider
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  Paper,
+  TextField
 } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 
 const TOKEN_LIMIT = 100000; // Set a token limit for the chat
 
@@ -38,13 +36,12 @@ const Chat = () => {
   const handleClose = () => setOpen(false);
 
   const endpoint = process.env.NEXT_PUBLIC_AZURE_OPENAI_ENDPOINT;
-  const apiKey = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_KEY
-  const deploymentName = process.env.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME
-  const apiVersion = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_VERSION
-  const openaiUrl = `${endpoint}/openai/deployments/${deploymentName}/chat/completions?api-version=${apiVersion}`;
+  const apiKey = process.env.NEXT_PUBLIC_AZURE_OPENAI_API_KEY;
+  const deploymentName = process.env.NEXT_PUBLIC_AZURE_OPENAI_DEPLOYMENT_NAME;
+  const openaiUrl = endpoint;
   const headers = {
     "Content-Type": "application/json",
-    "api-key": apiKey
+    "Authorization": `Bearer ${apiKey}`
   };
 
   const sendMessage = async () => {
@@ -59,12 +56,13 @@ const Chat = () => {
       if (messageHistory.length > 3000) {
         messageHistory = messageHistory.slice(-3000);
       }
+      setMessages(prev => [...prev, userMessage]);
       const response = await fetch(openaiUrl, 
       {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({
-        messages: [
+        input: [
             {
               role: "system",
               content: chatSystemPrompt
@@ -75,18 +73,16 @@ const Chat = () => {
             },
             userMessage
           ],
-          max_tokens: 300,
-          temperature: 0.7
+          model: deploymentName
         }),
       });
 
-      setMessages(prev => [...prev, userMessage]);
       if (!response.ok) {
         setMessages(prev => [...prev, { role: 'system', content: "Failed to get response" }]);
       }else{
         const data = await response.json();
         setUsedTokens(prev => prev + data.usage.total_tokens);
-        setMessages(prev => [...prev, { role: 'system', content: data.choices[0].message.content }]);
+        setMessages(prev => [...prev, { role: 'system', content: data.output[1].content[0].text }]);
         console.log("So far used tokens:", tokens);
         if (tokens >= TOKEN_LIMIT) {
           // If token limit reached, show a message
